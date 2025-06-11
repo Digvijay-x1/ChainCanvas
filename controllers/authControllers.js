@@ -24,7 +24,7 @@ module.exports.registeredUser = async (req, res) => {
 
     let token = generateToken(createdUser);
     res.cookie("token", token);
-    res.send("User created successfully");
+    res.render('shop')
 
   } catch (error) {
     res.status(500).send(error.message);
@@ -44,4 +44,9 @@ module.exports.loginUser = async (req,res) =>{
         }
         else res.send('something is wrong')
     })
+}
+
+module.exports.logout = (req,res)=>{
+    res.cookie('token','');
+    res.redirect('/');
 }
