@@ -1,13 +1,15 @@
 const  mongoose  = require('mongoose');
+const debug = require('debug')('development:mongoose')
+const config = require('config')
 
 
 mongoose
-.connect('mongodb://127.0.0.1:27017/ChainServer')
+.connect(`${config.get("MONGODB_URI")}/ChainServer`)
 .then(()=>{
-    console.log('connected')
+    debug('connected')
 })        
 .catch((err)=>{
-    console.log(err);
+    debug(err);
 })    
 
 module.exports = mongoose.connection;
