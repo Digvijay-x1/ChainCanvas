@@ -7,7 +7,7 @@ const ownerRouter = require('./routes/ownerRouter')
 const productRouter = require('./routes/productRouter')
 const userRouter = require('./routes/userRouter')
 
-
+require('dotenv').config();
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 app.use(express.static(path.join(__dirname,'public')));
