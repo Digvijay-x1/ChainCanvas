@@ -10,16 +10,53 @@
 </head>
 
 <body class="font-['helvetica_now_display'] bg-gray-50">
-  <nav class="w-full fixed top-0 left-0 bg-white shadow-md px-6 py-3 flex items-center justify-between z-50">
-    <h3 class="text-2xl font-extrabold text-blue-600 tracking-wide">Scatch</h3>
+  <nav class="w-full fixed top-0 left-0 bg-white/95 backdrop-blur-md shadow-lg border-b border-gray-100 px-8 py-4 flex items-center justify-between z-50 transition-all duration-300">
+    <!-- Logo with enhanced styling -->
+    <div class="flex items-center space-x-2">
+      <div class="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
+        <i class="ri-shopping-bag-3-line text-white text-lg"></i>
+      </div>
+      <h3 class="text-2xl font-black bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent tracking-tight">
+        Scatch
+      </h3>
+    </div>
 
     <% var LoggedIn = typeof LoggedIn !== 'undefined' ? LoggedIn : true %>
     <% if(LoggedIn){ %>
-    <div class="flex space-x-6 text-sm font-medium">
-      <a href="/shop" class="text-gray-700 hover:text-blue-600 transition">Shop</a>
-      <a href="/cart" class="text-gray-700 hover:text-blue-600 transition">Cart</a>
-      <a href="#" class="text-gray-700 hover:text-blue-600 transition">My Account</a>
-      <a href="/user/logout" class="text-red-600 hover:text-red-800 transition">Logout</a>
+    <!-- Navigation Links with enhanced styling -->
+    <div class="flex items-center space-x-8">
+      <a href="/shop" class="group relative text-gray-700 hover:text-blue-600 transition-all duration-300 font-medium">
+        <span class="flex items-center space-x-1">
+          <i class="ri-store-2-line text-lg"></i>
+          <span>Shop</span>
+        </span>
+        <div class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-500 to-purple-500 transition-all duration-300 group-hover:w-full rounded-full"></div>
+      </a>
+      
+      <a href="/cart" class="group relative text-gray-700 hover:text-blue-600 transition-all duration-300 font-medium">
+        <span class="flex items-center space-x-1">
+          <i class="ri-shopping-cart-line text-lg"></i>
+          <span>Cart</span>
+        </span>
+        <div class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-500 to-purple-500 transition-all duration-300 group-hover:w-full rounded-full"></div>
+      </a>
+      
+      <a href="#" class="group relative text-gray-700 hover:text-blue-600 transition-all duration-300 font-medium">
+        <span class="flex items-center space-x-1">
+          <i class="ri-user-line text-lg"></i>
+          <span>My Account</span>
+        </span>
+        <div class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-500 to-purple-500 transition-all duration-300 group-hover:w-full rounded-full"></div>
+      </a>
+      
+      <div class="h-6 w-px bg-gray-300"></div>
+      
+      <a href="/user/logout" class="group relative bg-gradient-to-r from-red-500 to-pink-500 text-white px-4 py-2 rounded-full font-medium transition-all duration-300 hover:shadow-lg hover:scale-105 active:scale-95">
+        <span class="flex items-center space-x-1">
+          <i class="ri-logout-box-line text-sm"></i>
+          <span>Logout</span>
+        </span>
+      </a>
     </div>
     <% } %>
   </nav>
