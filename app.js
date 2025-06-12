@@ -32,10 +32,6 @@ app.use('/owners', ownerRouter);
 app.use('/product', productRouter);
 app.use('/user', userRouter)
 
-app.get('/',(req,res)=>{
-    res.send('hello world');
-})
-
 app.listen(3000, () => {
     console.log('Server running on http://localhost:3000');
 });
