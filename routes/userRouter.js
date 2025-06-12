@@ -11,6 +11,7 @@ router.post("/register", registeredUser );
 
 router.post('/login', loginUser);
 
-router.post('/logout', logout )
+router.get('/logout', logout );
+
 
 module.exports = router;

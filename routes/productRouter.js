@@ -1,12 +1,11 @@
 const express = require('express');
 const router = express.Router();
 const productModel = require('../models/product');
-const multer = require('multer');
+
 const path = require('path');
 
 // Configure multer for file uploads
-const storage = multer.memoryStorage();
-const upload = multer({ storage: storage });
+const upload = require('../config/multer')
 
 router.get('/',(req,res)=>{
     res.send('ok');

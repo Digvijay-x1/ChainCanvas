@@ -29,7 +29,7 @@ app.set('view engine','ejs');
 app.use('/', index);
 
 app.use('/owners', ownerRouter);
-app.use('/product', productRouter);
+app.use('/products', productRouter);
 app.use('/user', userRouter)
 
 app.listen(3000, () => {
