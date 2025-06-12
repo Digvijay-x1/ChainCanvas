@@ -2,15 +2,14 @@ const express = require('express');
 const router = express.Router();
 const ownerModel = require('../models/owner')
 
-router.get('/',(req,res)=>{
-    res.send('ok');
-})
+
 
 if(process.env.NODE_ENV === 'development'){
     router.post('/create', async (req,res)=>{
         let owners = await ownerModel.find();
         if(owners.length > 0) {
-            return res.status(503).send('not allowed to create another user');
+            req.flash('error', 'Not allowed to create another user');
+            return res.redirect('/owners/admin');
         }
 
         let {fullname , email , password} = req.body;
@@ -21,10 +20,15 @@ if(process.env.NODE_ENV === 'development'){
             password,
         })
 
-        res.status(201).send(createdOwner)
-
-
+        req.flash('success', 'Owner created successfully');
+        res.redirect('/owners/admin');
     })
 }
+
+router.get('/admin',(req,res)=>{
+    let success = req.flash('success');
+    let error = req.flash('error');
+    res.render('createproducts', {success, error});
+})
 
 module.exports = router;
